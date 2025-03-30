@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collatz Conjecture Visualization</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Collatz Conjecture Visualization</h1>
+
+      <div class="description">
+        <p>
+          The Collatz conjecture states that given any positive integer, the sequence will always
+          reach 1 by following these rules:
+        </p>
+        <ul>
+          <li>If the number is even, divide it by 2</li>
+          <li>If the number is odd, multiply it by 3 and add 1</li>
+        </ul>
+      </div>
+
+      <div class="input-container">
+        <input
+          type="number"
+          id="start-number"
+          min="1"
+          value="27"
+          placeholder="Enter a starting number"
+        />
+        <button id="calculate-btn" class="btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14"></path>
+            <path d="M12 5v14"></path>
+          </svg>
+          Calculate
+        </button>
+        <button id="reset-btn" class="btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+            <path d="M3 3v5h5"></path>
+          </svg>
+          Reset
+        </button>
+      </div>
+
+      <div class="visualization">
+        <canvas id="chart"></canvas>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card steps-card">
+          <span class="stat-label">Steps to Reach 1</span>
+          <div id="steps" class="stat-value">0</div>
+        </div>
+        <div class="stat-card max-card">
+          <span class="stat-label">Maximum Value</span>
+          <div id="max-value" class="stat-value">0</div>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <h2>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12" y2="8"></line>
+          </svg>
+          About the Collatz Conjecture
+        </h2>
+        <p>
+          The <span class="highlight">Collatz conjecture</span> is one of the most famous unsolved
+          problems in mathematics. The conjecture asks whether repeating two simple arithmetic
+          operations will eventually transform every positive integer into 1.
+        </p>
+        <p>
+          Named after Lothar Collatz, who introduced the idea in 1937, the problem is also known as
+          the <span class="highlight">3n+1 problem</span>, the
+          <span class="highlight">Syracuse problem</span>, or the
+          <span class="highlight">hailstone sequence</span>.
+        </p>
+        <p>
+          The sequence is defined as follows: start with any positive integer n. Then each term is
+          obtained from the previous term according to these rules:
+        </p>
+        <div class="code-block">
+          <pre><span class="keyword">if</span> n <span class="operator">is</span> <span class="keyword">even</span>:
+    n <span class="operator">=</span> n <span class="operator">/</span> <span class="number">2</span>
+<span class="keyword">else</span>:
+    n <span class="operator">=</span> <span class="number">3</span> <span class="operator">×</span> n <span class="operator">+</span> <span class="number">1</span></pre>
+        </div>
+        <p>
+          Despite its simple appearance, the Collatz conjecture has resisted all attempts to prove
+          it for over 80 years. Paul Erdős said about the Collatz conjecture: "Mathematics may not
+          be ready for such problems."
+        </p>
+        <ul>
+          <li>
+            The conjecture has been verified for all starting values up to 2<sup>68</sup>
+            (approximately 2.95 × 10<sup>20</sup>)
+          </li>
+          <li>
+            For the number 27, the sequence reaches a peak of 9,232 before eventually descending to
+            1
+          </li>
+          <li>
+            The sequence for most starting numbers contains more steps going up than down, yet still
+            always reaches 1
+          </li>
+          <li>
+            The sequence creates patterns called "hailstone sequences" because the values tend to go
+            up and down, like hailstones in a cloud
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="scroll-top" class="scroll-top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m18 15-6-6-6 6" />
+      </svg>
+    </div>
+
+    <footer class="footer">
+      <p>Collatz Conjecture Visualization</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
