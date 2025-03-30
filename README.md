@@ -13,7 +13,7 @@ The Collatz conjecture is a mathematical conjecture concerning sequences defined
 
 The conjecture states that no matter what positive integer we start with, the sequence will always reach 1.
 
-[demo](./assets/img.png)
+![demo](./assets/img.png)
 
 ## Features
 
